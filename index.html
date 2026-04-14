@@ -678,6 +678,18 @@
                     Web Developer yang berfokus pada pengembangan aplikasi web yang stabil,
                     aman, dan scalable menggunakan teknologi modern seperti PHP dan Laravel.
                 </p>
+
+                <div style="margin-top:16px;display:flex;gap:12px;font-size:20px">
+                    <a href="#" class="social-icon">🌐</a>
+                    <a href="#" class="social-icon">💼</a>
+                    <a href="#" class="social-icon">🐙</a>
+                    <a href="#" class="social-icon">📧</a>
+                </div>
+
+                <div style="margin-top:16px;font-weight:600;color:var(--primary)">
+                    🟢 Available for Work
+                </div>
+
             </div>
 
             <!-- NAVIGATION -->
@@ -694,16 +706,28 @@
                 </div>
             </div>
 
-            <!-- CONTACT INFO -->
+            <!-- CONTACT FORM MINI -->
 
             <div>
-                <h4 style="margin-bottom:12px">Contact</h4>
-                <div style="display:grid;gap:8px;color:var(--gray)">
-                    <div>Email: yourname@email.com</div>
-                    <div>LinkedIn: linkedin.com/in/username</div>
-                    <div>GitHub: github.com/username</div>
-                    <div>Location: Indonesia</div>
-                </div>
+                <h4 style="margin-bottom:12px">Quick Contact</h4>
+
+                <form style="display:grid;gap:10px">
+
+                    <input type="text" placeholder="Your Name" required
+                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white">
+
+                    <input type="email" placeholder="Your Email" required
+                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white">
+
+                    <textarea placeholder="Message" rows="3" required
+                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white"></textarea>
+
+                    <button type="submit" class="btn">
+                        Send Message
+                    </button>
+
+                </form>
+
             </div>
 
             <!-- SPECIALIZATION -->
@@ -717,15 +741,103 @@
                     <div>System Optimization</div>
                     <div>Web Security</div>
                 </div>
+
+                <div style="margin-top:18px;color:var(--gray)">
+                    Visitors: <span id="visitorCount">0</span>
+                </div>
+
             </div>
 
         </div>
 
+        <!-- SITEMAP SEO -->
+
         <div style="margin-top:40px;padding-top:18px;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:var(--gray)">
-            © 2026 — Portfolio Web Developer | Built with HTML, CSS, JavaScript
+
+            <div style="margin-bottom:10px">
+                Sitemap:
+                <a href="#about">About</a> |
+                <a href="#skills">Skills</a> |
+                <a href="#projects">Projects</a> |
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div>
+                © <span id="year"></span> — Portfolio Web Developer | Built with HTML, CSS, JavaScript
+            </div>
+
         </div>
 
     </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+
+    <button id="backToTop"
+        style="position:fixed;bottom:24px;right:24px;padding:12px 14px;border:none;border-radius:10px;background:var(--primary);color:white;font-size:16px;cursor:pointer;display:none;z-index:9999">
+        ↑
+    </button>
+
+    <!-- DARK MODE TOGGLE -->
+
+    <button id="themeToggle"
+        style="position:fixed;bottom:24px;left:24px;padding:12px 14px;border:none;border-radius:10px;background:#020617;color:white;font-size:16px;cursor:pointer;z-index:9999">
+        🌙
+    </button>
+
+    <script>
+
+        // Dynamic Year
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Back To Top
+
+        const btn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+
+            if (window.scrollY > 300) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+
+        });
+
+        btn.addEventListener('click', () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        });
+
+        // Visitor Counter (localStorage)
+
+        let count = localStorage.getItem('visitorCount');
+
+        if (!count) {
+            count = 1;
+        } else {
+            count = Number(count) + 1;
+        }
+
+        localStorage.setItem('visitorCount', count);
+
+        document.getElementById('visitorCount').textContent = count;
+
+        // Dark Light Mode Toggle
+
+        const toggle = document.getElementById('themeToggle');
+
+        toggle.addEventListener('click', () => {
+
+            document.body.classList.toggle('light-mode');
+
+        });
+
+    </script>
 
     <!-- PROJECT MODAL -->
 
