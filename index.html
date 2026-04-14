@@ -7,6 +7,27 @@
 
     <!-- SEO -->
     <title>Y. Fadh | Web Developer Portfolio</title>
+
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="Y. Fadh | Web Developer" />
+    <meta property="og:description" content="Portfolio profesional Web Developer PHP, Laravel, Backend Engineering" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="profile.jpg" />
+
+    <!-- Structured Data SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Y. Fadh",
+        "jobTitle": "Web Developer",
+        "url": "https://yourdomain.com",
+        "sameAs": [
+            "https://github.com/username",
+            "https://linkedin.com/in/username"
+        ]
+    }
+    </script>
     <meta name="description"
         content="Portfolio profesional Web Developer - PHP, Laravel, UI/UX, Backend Development, System Design" />
 
@@ -361,9 +382,17 @@
                 performance optimization, dan keamanan aplikasi berbasis PHP dan Laravel.
             </p>
 
+            <div style="display:flex;gap:16px;flex-wrap:wrap">
+
             <a href="#contact" class="btn">
                 Hire Me
             </a>
+
+            <a href="cv.pdf" class="btn" download>
+                Download CV
+            </a>
+
+            </div>
 
         </div>
 
@@ -387,34 +416,87 @@
                 keamanan kuat, dan maintainability jangka panjang.
             </p>
 
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2024 — Sekarang</div>
+                    <div class="card">
+                        <h3>Web Developer</h3>
+                        <p>
+                            Mengembangkan aplikasi web berbasis PHP dan MySQL dengan fokus pada stabilitas sistem,
+                            keamanan data, dan performa aplikasi production-ready.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2023 — 2024</div>
+                    <div class="card">
+                        <h3>Backend Developer</h3>
+                        <p>
+                            Membangun backend system menggunakan Laravel untuk dashboard dan sistem manajemen data.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2022 — Sekarang</div>
+                    <div class="card">
+                        <h3>Freelance Web Developer</h3>
+                        <p>
+                            Mengembangkan website dan sistem informasi untuk organisasi dan bisnis.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TECH STACK -->
+
+    <section id="tech">
+
+        <div class="container">
+
+            <h2>Tech Stack</h2>
+
+            <p class="subtitle">
+                Teknologi utama yang digunakan dalam pengembangan aplikasi web modern.
+            </p>
+
             <div class="skills-grid">
 
                 <div class="card">
-                    <h3>Backend Development</h3>
-                    <p>
-                        PHP, Laravel, REST API, Database Design, MVC Architecture.
-                    </p>
+                    <h3>🐘 PHP</h3>
+                    <p>Backend development dan server-side logic.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Security Engineering</h3>
-                    <p>
-                        SQL Injection, XSS, CSRF Protection, Authentication System.
-                    </p>
+                    <h3>🚀 Laravel</h3>
+                    <p>MVC framework untuk scalable web application.</p>
                 </div>
 
                 <div class="card">
-                    <h3>Performance Optimization</h3>
-                    <p>
-                        Query Optimization, Indexing, Caching, Response Time Tuning.
-                    </p>
+                    <h3>🗄️ MySQL</h3>
+                    <p>Relational database design dan optimization.</p>
                 </div>
 
                 <div class="card">
-                    <h3>UI / UX Engineering</h3>
-                    <p>
-                        Responsive Design, Interaction Design, Accessibility.
-                    </p>
+                    <h3>⚙️ JavaScript</h3>
+                    <p>Interactive UI dan frontend behavior.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎨 Bootstrap</h3>
+                    <p>Responsive layout dan UI components.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🔐 Git</h3>
+                    <p>Version control dan collaboration workflow.</p>
                 </div>
 
             </div>
@@ -588,6 +670,45 @@
         © 2026 — Portfolio
         <span>Web Developer</span>
     </footer>
+
+    <!-- PROJECT MODAL -->
+
+    <div id="projectModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);align-items:center;justify-content:center;z-index:9999">
+
+        <div style="background:#020617;padding:40px;border-radius:18px;max-width:600px;width:90%;position:relative">
+
+            <button onclick="closeModal()" style="position:absolute;top:14px;right:18px;font-size:20px;background:none;border:none;color:white;cursor:pointer">✕</button>
+
+            <h3>Project Detail</h3>
+
+            <p style="margin-top:14px;color:#94a3b8">
+                Deskripsi lengkap project: fitur utama, teknologi yang digunakan,
+                dan peran dalam pengembangan sistem.
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        document.querySelectorAll('.project-card').forEach(card => {
+
+            card.addEventListener('click', () => {
+
+                document.getElementById('projectModal').style.display = 'flex';
+
+            });
+
+        });
+
+        function closeModal() {
+
+            document.getElementById('projectModal').style.display = 'none';
+
+        }
+
+    </script>
 
     <script>
 
