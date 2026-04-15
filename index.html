@@ -246,9 +246,17 @@
         }
 
         @keyframes borderMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .card:hover {
@@ -384,13 +392,13 @@
 
             <div style="display:flex;gap:16px;flex-wrap:wrap">
 
-            <a href="#contact" class="btn">
-                Hire Me
-            </a>
+                <a href="#contact" class="btn">
+                    Hire Me
+                </a>
 
-            <a href="cv.pdf" class="btn" download>
-                Download CV
-            </a>
+                <a href="cv.pdf" class="btn" download>
+                    Download CV
+                </a>
 
             </div>
 
@@ -668,7 +676,8 @@
 
     <footer>
 
-        <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;text-align:left">
+        <div class="container"
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;text-align:left">
 
             <!-- BRAND -->
 
@@ -752,7 +761,8 @@
 
         <!-- SITEMAP SEO -->
 
-        <div style="margin-top:40px;padding-top:18px;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:var(--gray)">
+        <div
+            style="margin-top:40px;padding-top:18px;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:var(--gray)">
 
             <div style="margin-bottom:10px">
                 Sitemap:
@@ -841,11 +851,13 @@
 
     <!-- PROJECT MODAL -->
 
-    <div id="projectModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);align-items:center;justify-content:center;z-index:9999">
+    <div id="projectModal"
+        style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);align-items:center;justify-content:center;z-index:9999">
 
         <div style="background:#020617;padding:40px;border-radius:18px;max-width:600px;width:90%;position:relative">
 
-            <button onclick="closeModal()" style="position:absolute;top:14px;right:18px;font-size:20px;background:none;border:none;color:white;cursor:pointer">✕</button>
+            <button onclick="closeModal()"
+                style="position:absolute;top:14px;right:18px;font-size:20px;background:none;border:none;color:white;cursor:pointer">✕</button>
 
             <h3>Project Detail</h3>
 
