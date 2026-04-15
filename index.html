@@ -5,37 +5,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
-    <title>Y. Fadh | Junior Web Design&Developer Portfolio</title>
+    <!-- PRIMARY SEO -->
+    <title>Y. Fadh | Web Developer Portfolio - PHP Laravel Backend Developer</title>
+    <meta name="description"
+        content="Portfolio profesional Web Developer yang berfokus pada pengembangan aplikasi web menggunakan PHP, Laravel, MySQL, dan optimasi performa serta keamanan sistem." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yourdomain.com" />
 
-    <!-- Open Graph SEO -->
-    <meta property="og:title" content="Y. Fadh | Web Developer" />
-    <meta property="og:description" content="Portfolio profesional Web Developer PHP, Laravel, Backend Engineering" />
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Y. Fadh | Web Developer Portfolio" />
+    <meta property="og:description"
+        content="Web Developer PHP & Laravel dengan fokus pada performa, keamanan, dan scalable system." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="profile.jpg" />
 
-    <!-- Structured Data SEO -->
+    <!-- PERFORMANCE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Y. Fadh",
+        "name": "Yohan Fadhillah Jibraltar",
         "jobTitle": "Web Developer",
         "url": "https://yourdomain.com",
         "sameAs": [
-            "https://github.com/username",
-            "https://linkedin.com/in/username"
+            "https://github.com/YohanFadhil34",
+            "https://www.linkedin.com/in/yohan-fadhillah-jibraltar-2976362a4/"
         ]
     }
     </script>
-    <meta name="description"
-        content="Portfolio profesional Web Developer - PHP, Laravel, UI/UX" />
-
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
 
     <style>
+
         :root {
             --primary: #22d3ee;
             --secondary: #6366f1;
@@ -111,7 +119,6 @@
         .logo {
             font-weight: 800;
             font-size: 1.2rem;
-            letter-spacing: .5px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             color: transparent;
@@ -126,27 +133,18 @@
         .nav a {
             color: var(--gray);
             font-weight: 500;
+            text-decoration: none;
             transition: .3s;
-            position: relative;
-        }
-
-        .nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: .3s;
-        }
-
-        .nav a:hover::after {
-            width: 100%;
         }
 
         .nav a:hover {
             color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* HERO */
@@ -161,7 +159,6 @@
 
         .hero h1 {
             font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-            line-height: 1.15;
             font-weight: 800;
         }
 
@@ -186,27 +183,13 @@
             background: linear-gradient(90deg, var(--secondary), var(--accent));
             color: white;
             font-weight: 600;
+            text-decoration: none;
             transition: .35s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .35), transparent);
-            transform: translateX(-100%);
-        }
-
-        .btn:hover::before {
-            transform: translateX(100%);
-            transition: .7s;
         }
 
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 0 0 6px rgba(168, 85, 247, .15), 0 25px 60px rgba(168, 85, 247, .35);
+            box-shadow: 0 25px 60px rgba(168, 85, 247, .35);
         }
 
         /* CARDS */
@@ -220,61 +203,20 @@
         }
 
         .card {
-            position: relative;
-            background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+            background: rgba(255, 255, 255, .05);
             border-radius: var(--radius);
             padding: 32px;
             border: 1px solid rgba(148, 163, 184, .18);
             transition: .45s;
-            overflow: hidden;
-        }
-
-        .card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            padding: 1.5px;
-            border-radius: inherit;
-            background: linear-gradient(120deg, var(--primary), var(--accent), var(--secondary));
-            background-size: 300% 300%;
-            animation: borderMove 6s ease infinite;
-            -webkit-mask:
-                linear-gradient(#000 0 0) content-box,
-                linear-gradient(#000 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-
-        @keyframes borderMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 80px rgba(2, 6, 23, .9);
+            transform: translateY(-10px);
         }
 
-        .project-card img {
-            width: 100%;
+        img {
+            max-width: 100%;
             border-radius: 12px;
-            margin-bottom: 18px;
-            transition: .5s;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            background: linear-gradient(135deg, rgba(34, 211, 238, .18), rgba(168, 85, 247, .18));
-            border: 1px solid rgba(148, 163, 184, .25);
-            padding: 70px 50px;
-            border-radius: 28px;
-            text-align: center;
         }
 
         footer {
@@ -282,37 +224,6 @@
             padding: 40px;
             color: var(--gray);
             border-top: 1px solid rgba(148, 163, 184, .15);
-        }
-
-        footer span {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: 600;
-        }
-
-        /* FLOATING BACKGROUND PARTICLES */
-
-        .particle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: .4;
-            animation: float 12s linear infinite;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(0);
-                opacity: .4;
-            }
-
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
         }
 
         /* MOBILE */
@@ -325,26 +236,37 @@
             }
 
             .nav ul {
+                position: absolute;
+                top: 74px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 20px;
                 display: none;
             }
 
+            .nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-    <!-- floating particles -->
-
-    <script>
-        for (let i = 0; i < 18; i++) {
-            const p = document.createElement("div");
-            p.className = "particle";
-            p.style.left = Math.random() * 100 + "vw";
-            p.style.animationDuration = 6 + Math.random() * 10 + "s";
-            document.body.appendChild(p);
-        }
-    </script>
+    <noscript>
+        <div style="padding:20px;text-align:center;background:red;color:white">
+            Website membutuhkan JavaScript untuk pengalaman terbaik.
+        </div>
+    </noscript>
 
     <!-- NAVBAR -->
 
@@ -353,7 +275,11 @@
 
             <div class="logo">YF Developer</div>
 
-            <ul>
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+
+            <ul id="navMenu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -363,279 +289,134 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <main>
 
-    <section class="container hero" id="about">
+        <!-- HERO -->
 
-        <div>
+        <section class="container hero" id="about">
 
-            <h1>
-                Membangun & Mendesain
-                <span>Web Application</span>
-                yang Stabil,
-                Aman,
-                dan Scalable
-            </h1>
+            <div>
 
-            <p>
-                Web Developer dengan fokus pada system design,
-                performance optimization, dan keamanan aplikasi berbasis PHP dan Laravel.
-            </p>
+                <h1>
+                    Membangun
+                    <span>Web Application</span>
+                    yang Stabil dan Aman
+                </h1>
 
-            <div style="display:flex;gap:16px;flex-wrap:wrap">
+                <p>
+                    Web Developer dengan fokus pada system design, performance optimization,
+                    dan keamanan aplikasi berbasis PHP dan Laravel.
+                </p>
 
-            <a href="#contact" class="btn">
-                Hire Me
-            </a>
+                <div style="display:flex;gap:16px;flex-wrap:wrap">
 
-            <a href="cv.pdf" class="btn" download>
-                Download CV
-            </a>
+                    <a href="#contact" class="btn">
+                        Hire Me
+                    </a>
+
+                    <a href="cv.pdf" class="btn" download>
+                        Download CV
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
+            <div>
+                <img src="https://dummyimage.com/420x420/16a34a/ffffff&text=Your+Photo"
+                    alt="Foto profil Web Developer"
+                    loading="lazy">
+            </div>
 
-        <div>
-            <img src="https://dummyimage.com/420x420/16a34a/ffffff&text=Your+Photo" alt="Profile"
-                style="width:100%;border-radius:20px;box-shadow:0 40px 90px rgba(0,0,0,.6)">
-        </div>
+        </section>
 
-    </section>
+        <!-- SKILLS -->
 
-    <!-- SKILLS -->
+        <section id="skills">
 
-    <section id="skills">
+            <div class="container">
 
-        <div class="container">
+                <h2>Core Expertise</h2>
 
-            <h2>Core Expertise</h2>
+                <p class="subtitle">
+                    Pengembangan aplikasi web production-ready dengan performa tinggi
+                    dan keamanan sistem.
+                </p>
 
-            <p class="subtitle">
-                Fokus pada pengembangan aplikasi web production-ready dengan performa tinggi,
-                keamanan kuat, dan maintainability jangka panjang.
-            </p>
+                <div class="skills-grid">
 
-            <div class="timeline">
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
                     <div class="card">
-                        <h3>It staff (Internship)</h3>
-                        <p>
-                           Mengontrol dan maintanance peralatan IT baik perangkat lunak maupun perangkat keras
-                        </p>
+                        <h3>Backend Development</h3>
+                        <p>PHP, Laravel, REST API, Authentication.</p>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-year">2025 — Sekarang</div>
                     <div class="card">
-                        <h3>Junior Web Developer(Freelance)</h3>
-                        <p>
-                            Mengembangkan aplikasi web berbasis PHP dan MySQL dengan fokus pada stabilitas sistem,
-                            keamanan data, dan performa aplikasi production-ready.
-                        </p>
+                        <h3>Database Engineering</h3>
+                        <p>MySQL design, indexing, query optimization.</p>
                     </div>
-                </div>
-                
-            </div>
 
-        </div>
-
-    </section>
-
-    <!-- TECH STACK -->
-
-    <section id="tech">
-
-        <div class="container">
-
-            <h2>Tech Stack</h2>
-
-            <p class="subtitle">
-                Teknologi utama yang digunakan dalam pengembangan aplikasi web modern.
-            </p>
-
-            <div class="skills-grid">
-
-                <div class="card">
-                    <h3>🐘 PHP</h3>
-                    <p>Backend development dan server-side logic.</p>
-                </div>
-
-                <div class="card">
-                    <h3>🚀 Laravel</h3>
-                    <p>MVC framework untuk scalable web application.</p>
-                </div>
-
-                <div class="card">
-                    <h3>🗄️ MySQL</h3>
-                    <p>Relational database design dan optimization.</p>
-                </div>
-
-                <div class="card">
-                    <h3>⚙️ JavaScript</h3>
-                    <p>Interactive UI dan frontend behavior.</p>
-                </div>
-
-                <div class="card">
-                    <h3>🎨 Bootstrap</h3>
-                    <p>Responsive layout dan UI components.</p>
-                </div>
-
-                <div class="card">
-                    <h3>🔐 Git</h3>
-                    <p>Version control dan collaboration workflow.</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- EXPERIENCE -->
-
-    <section id="experience">
-
-        <div class="container">
-
-            <h2>Professional Experience</h2>
-
-            <p class="subtitle">
-                Riwayat pengalaman kerja dan proyek yang menunjukkan kemampuan dalam pengembangan sistem berbasis web,
-                pemecahan masalah teknis, dan pengiriman solusi yang siap digunakan di lingkungan produksi.
-            </p>
-
-            <div class="skills-grid">
-
-                <div class="card">
-
-                    <h3>Junior Web Developer</h3>
-
-                    <p style="color:var(--primary);font-weight:600;margin-bottom:8px">
-                        2024 — Sekarang
-                    </p>
-
-                    <p>
-                        Mengembangkan aplikasi web berbasis PHP dan MySQL dengan fokus pada stabilitas sistem,
-                        keamanan data, dan performa aplikasi. Bertanggung jawab pada desain database,
-                        pengembangan fitur CRUD, serta optimasi query.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>UI UX Design</h3>
-
-                    <p style="color:var(--primary);font-weight:600;margin-bottom:8px">
-                        2024 — Sekarang
-                    </p>
-
-                    <p>
-                        Membangun dan Memperbaiki backend system menggunakan Figma untuk Design/Re-Design sistem manajemen data dan dashboard.
-                        Mengimplementasikan authentication, role management, dan reporting module.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>Freelance Junior Web Developer</h3>
-
-                    <p style="color:var(--primary);font-weight:600;margin-bottom:8px">
-                        2025 — Sekarang
-                    </p>
-
-                    <p>
-                        Mengembangkan dan Memperbaiki berbagai website dan sistem informasi untuk kebutuhan Perorangan, organisasi, dan bisnis.
-                        Fokus pada usability, maintainability, dan deployment ke hosting production.
-                    </p>
+                    <div class="card">
+                        <h3>System Security</h3>
+                        <p>Validation, session security, data protection.</p>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <!-- PROJECTS -->
 
-    <!-- PROJECTS -->
+        <section id="projects">
 
-    <section id="projects">
+            <div class="container">
 
-        <div class="container">
+                <h2>Selected Projects</h2>
 
-            <h2>Selected Projects</h2>
+                <p class="subtitle">
+                    Proyek pengembangan sistem berbasis web.
+                </p>
 
-            <p class="subtitle">
-                Beberapa proyek yang menunjukkan kemampuan dalam pengembangan aplikasi
-                berbasis web modern.
-            </p>
+                <div class="projects-grid">
 
-            <div class="projects-grid">
+                    <div class="card">
 
-                <div class="card project-card">
+                        <img src="https://dummyimage.com/600x400/e2e8f0/000&text=Laravel+Dashboard"
+                            alt="Project dashboard Laravel"
+                            loading="lazy">
 
-                    <img src="https://dummyimage.com/600x400/e2e8f0/000&text=Laravel+Dashboard">
+                        <h4>Analytics Dashboard System</h4>
 
-                    <h4>Analytics Dashboard System for e commerce</h4>
+                        <p>
+                            PHP, MySQL, Authentication System.
+                        </p>
 
-                    <p>
-                        Php Native, MySQL, Data Visualization, Authentication System.
-                    </p>
-
-                </div>
-
-                <div class="card project-card">
-
-                    <img src="https://dummyimage.com/600x400/e2e8f0/000&text=Management+System">
-
-                    <h4>UI Design</h4>
-
-                    <p>
-                        Button, Wiferame, Form.
-                    </p>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <!-- CONTACT -->
 
-    <!-- CONTACT -->
+        <section id="contact">
 
-    <section id="contact">
-
-        <div class="container">
-
-            <div class="contact-box">
+            <div class="container">
 
                 <h2>Contact Information</h2>
 
                 <p>
-                    Silakan hubungi saya untuk kolaborasi proyek atau peluang kerja.
+                    Silakan hubungi saya untuk kolaborasi proyek.
                 </p>
 
-                <div style="margin-top:30px; display:grid; gap:14px; font-size:1.05rem">
-
-                    <div>
-                        <strong>Nama:</strong>
-                        Yohan Fadhillah Jibraltar
-                    </div>
+                <div style="margin-top:20px;display:grid;gap:10px">
 
                     <div>
                         <strong>Email:</strong>
-                        yohanfadhillah65@gmail.com.com
-                    </div>
-
-                    <div>
-                        <strong>LinkedIn:</strong>
-                        linkedin.com/in/yohan-fadhillah-jibraltar
+                        yohanfadhillah65@gmail.com
                     </div>
 
                     <div>
@@ -652,127 +433,18 @@
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </main>
 
     <footer>
 
-        <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;text-align:left">
-
-            <!-- BRAND -->
-
-            <div>
-                <h3 style="margin-bottom:12px">YF Developer</h3>
-                <p style="color:var(--gray)">
-                    Junior Web Developer yang berfokus pada pengembangan aplikasi web yang stabil,
-                    aman, dan scalable menggunakan teknologi modern seperti PHP dan Laravel.
-                </p>
-
-                <div style="margin-top:16px;display:flex;gap:12px;font-size:20px">
-                    <a href="#" class="social-icon">🌐</a>
-                    <a href="#" class="social-icon">💼</a>
-                    <a href="#" class="social-icon">🐙</a>
-                    <a href="#" class="social-icon">📧</a>
-                </div>
-
-                <div style="margin-top:16px;font-weight:600;color:var(--primary)">
-                    🟢 Available for Work
-                </div>
-
-            </div>
-
-            <!-- NAVIGATION -->
-
-            <div>
-                <h4 style="margin-bottom:12px">Navigation</h4>
-                <div style="display:grid;gap:8px;color:var(--gray)">
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#tech">Tech Stack</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-
-            <!-- CONTACT FORM MINI -->
-
-            <div>
-                <h4 style="margin-bottom:12px">Quick Contact</h4>
-
-                <form style="display:grid;gap:10px">
-
-                    <input type="text" placeholder="Your Name" required
-                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white">
-
-                    <input type="email" placeholder="Your Email" required
-                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white">
-
-                    <textarea placeholder="Message" rows="3" required
-                        style="padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#020617;color:white"></textarea>
-
-                    <button type="submit" class="btn">
-                        Send Message
-                    </button>
-
-                </form>
-
-            </div>
-
-            <!-- SPECIALIZATION -->
-
-            <div>
-                <h4 style="margin-bottom:12px">Specialization</h4>
-                <div style="display:grid;gap:8px;color:var(--gray)">
-                    <div>Ui Ux Design</div>
-                    <div>Web Application Design & Development</div>
-                    <div>Database Design</div>
-                    <div>System Optimization</div>
-                    <div>Web Security</div>
-                </div>
-
-                <div style="margin-top:18px;color:var(--gray)">
-                    Visitors: <span id="visitorCount">0</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- SITEMAP SEO -->
-
-        <div style="margin-top:40px;padding-top:18px;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:var(--gray)">
-
-            <div style="margin-bottom:10px">
-                Sitemap:
-                <a href="#about">About</a> |
-                <a href="#skills">Skills</a> |
-                <a href="#projects">Projects</a> |
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div>
-                © <span id="year"></span> — Portfolio Junior Web Developer | Built with HTML, CSS, JavaScript
-            </div>
-
+        <div>
+            © <span id="year"></span>
+            Portfolio Web Developer
         </div>
 
     </footer>
-
-    <!-- BACK TO TOP BUTTON -->
-
-    <button id="backToTop"
-        style="position:fixed;bottom:24px;right:24px;padding:12px 14px;border:none;border-radius:10px;background:var(--primary);color:white;font-size:16px;cursor:pointer;display:none;z-index:9999">
-        ↑
-    </button>
-
-    <!-- DARK MODE TOGGLE -->
-
-    <!-- <button id="themeToggle"
-        style="position:fixed;bottom:24px;left:24px;padding:12px 14px;border:none;border-radius:10px;background:#020617;color:white;font-size:16px;cursor:pointer;z-index:9999">
-        🌙
-    </button> -->
 
     <script>
 
@@ -780,9 +452,33 @@
 
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Back To Top
+        // Mobile Menu Toggle
 
-        const btn = document.getElementById('backToTop');
+        const toggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('navMenu');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Back To Top (performance safe)
+
+        const btn = document.createElement('button');
+
+        btn.innerText = '↑';
+
+        btn.style.position = 'fixed';
+        btn.style.bottom = '24px';
+        btn.style.right = '24px';
+        btn.style.padding = '12px 14px';
+        btn.style.border = 'none';
+        btn.style.borderRadius = '10px';
+        btn.style.background = '#22d3ee';
+        btn.style.color = 'white';
+        btn.style.cursor = 'pointer';
+        btn.style.display = 'none';
+
+        document.body.appendChild(btn);
 
         window.addEventListener('scroll', () => {
 
@@ -800,103 +496,6 @@
                 top: 0,
                 behavior: 'smooth'
             });
-
-        });
-
-        // Visitor Counter (localStorage)
-
-        let count = localStorage.getItem('visitorCount');
-
-        if (!count) {
-            count = 1;
-        } else {
-            count = Number(count) + 1;
-        }
-
-        localStorage.setItem('visitorCount', count);
-
-        document.getElementById('visitorCount').textContent = count;
-
-        // Dark Light Mode Toggle
-
-        const toggle = document.getElementById('themeToggle');
-
-        toggle.addEventListener('click', () => {
-
-            document.body.classList.toggle('light-mode');
-
-        });
-
-    </script>
-
-    <!-- PROJECT MODAL -->
-
-    <div id="projectModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);align-items:center;justify-content:center;z-index:9999">
-
-        <div style="background:#020617;padding:40px;border-radius:18px;max-width:600px;width:90%;position:relative">
-
-            <button onclick="closeModal()" style="position:absolute;top:14px;right:18px;font-size:20px;background:none;border:none;color:white;cursor:pointer">✕</button>
-
-            <h3>Project Detail</h3>
-
-            <p style="margin-top:14px;color:#94a3b8">
-                Deskripsi lengkap project: fitur utama, teknologi yang digunakan,
-                dan peran dalam pengembangan sistem.
-            </p>
-
-        </div>
-
-    </div>
-
-    <script>
-
-        document.querySelectorAll('.project-card').forEach(card => {
-
-            card.addEventListener('click', () => {
-
-                document.getElementById('projectModal').style.display = 'flex';
-
-            });
-
-        });
-
-        function closeModal() {
-
-            document.getElementById('projectModal').style.display = 'none';
-
-        }
-
-    </script>
-
-    <script>
-
-        /* reveal animation */
-
-        const observer = new IntersectionObserver(entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = 1;
-
-                    entry.target.style.transform = 'translateY(0)';
-
-                }
-
-            });
-
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.card').forEach(el => {
-
-            el.style.opacity = 0;
-
-            el.style.transform = 'translateY(40px)';
-
-            el.style.transition = '0.8s ease';
-
-            observer.observe(el);
 
         });
 
