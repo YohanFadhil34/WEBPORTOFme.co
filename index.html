@@ -51,6 +51,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -408,14 +409,160 @@
                 max-width: 140px;
             }
 
-            .nav ul {
-                display: none;
+        }
+
+        /* LOADER */
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #020617;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+
+        #loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 18px;
+        }
+
+        .loader-bar {
+            width: 180px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-bar::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 40%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            animation: loadingMove 1.4s infinite;
+        }
+
+        @keyframes loadingMove {
+            from {
+                left: -40%;
             }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        /* HAMBURGER */
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.35s ease;
+        }
+
+        /* ANIMATION → X */
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* MOBILE NAV */
+
+        @media (max-width: 768px) {
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav ul {
+
+                position: fixed;
+
+                top: 74px;
+                right: -100%;
+
+                width: 270px;
+                height: 100vh;
+
+                background: #020617;
+
+                flex-direction: column;
+
+                padding: 40px 24px;
+
+                gap: 22px;
+
+                transition: right 0.35s ease;
+
+                border-left: 1px solid rgba(148, 163, 184, 0.15);
+
+                z-index: 1000;
+
+                display: flex;
+
+                box-shadow:
+                    -10px 0 40px rgba(0, 0, 0, 0.6);
+
+            }
+
+            .nav ul.active {
+
+                right: 0;
+
+            }
+
         }
     </style>
 </head>
 
 <body>
+
+    <!-- LOADING SCREEN -->
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">YF</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
     <!-- floating particles -->
 
     <script>
@@ -434,13 +581,19 @@
         <div class="container nav">
             <div class="logo">YF Designer & Developer</div>
 
-            <ul>
+            <ul id="navMenu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -622,7 +775,9 @@
 
                     <h4>E-commerece website</h4>
 
-                    <p>Php, MySQL, Reporting, Authentication System, Cart system. Website ini menggunakan php sebagai bahasa pemrograman dasar backend, framework bootstrap CSS sebagai penunjang UI, dan Javascript sebagai penunjang animasi dan lainnya</p>
+                    <p>Php, MySQL, Reporting, Authentication System, Cart system. Website ini menggunakan php sebagai
+                        bahasa pemrograman dasar backend, framework bootstrap CSS sebagai penunjang UI, dan Javascript
+                        sebagai penunjang animasi dan lainnya</p>
                 </div>
 
                 <div class="card project-card">
@@ -630,7 +785,10 @@
 
                     <h4>Management Information System</h4>
 
-                    <p>CRUD System, Role Management, Reporting Module. Website SMIP / Sistem Manajemen Informasi Perpusatakaan dimana mengatur peminjaman buku, pengembalian buku, pengajuan buku. Website SMIP juga dilengkapi fitur authencation user, sistem denda apabila telat dan Crud terkait data buku.</p>
+                    <p>CRUD System, Role Management, Reporting Module. Website SMIP / Sistem Manajemen Informasi
+                        Perpusatakaan dimana mengatur peminjaman buku, pengembalian buku, pengajuan buku. Website SMIP
+                        juga dilengkapi fitur authencation user, sistem denda apabila telat dan Crud terkait data buku.
+                    </p>
                 </div>
 
                 <div class="card project-card">
@@ -638,7 +796,10 @@
 
                     <h4>Machine Learning</h4>
 
-                    <p>Clustering data using Machine Learning System. Machine learning ini bertujuan untuk mengetahui sebaran penyakit Tuberculosis(TBC) pada suatu kabupaten atau kota. Machine learning ini berkonsep clustering method dimana algorithma yang digunakan adalah algoritma evolusi genetika (Genetic Evolution).</p>
+                    <p>Clustering data using Machine Learning System. Machine learning ini bertujuan untuk mengetahui
+                        sebaran penyakit Tuberculosis(TBC) pada suatu kabupaten atau kota. Machine learning ini
+                        berkonsep clustering method dimana algorithma yang digunakan adalah algoritma evolusi genetika
+                        (Genetic Evolution).</p>
                 </div>
             </div>
         </div>
@@ -925,11 +1086,17 @@
 
         // Dark Light Mode Toggle
 
-        const toggle = document.getElementById('themeToggle');
+        const toggle = document.getElementById("themeToggle");
 
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-        });
+        if (toggle) {
+
+            toggle.addEventListener("click", () => {
+
+                document.body.classList.toggle("light-mode");
+
+            });
+
+        }
     </script>
 
     <!-- PROJECT MODAL -->
@@ -967,14 +1134,19 @@
             <h3>Project Detail</h3>
 
             <p style="margin-top: 14px; color: #94a3b8">
-                
-                E-commerce ini juga memiliki fitur checkout, cart, dan log pembelian pada tiap usernya. tak lupa juga dengan authentication user seperti signup dan Account registration.
 
-                Website SMIP Menggunakan framework php yaitu codeigneiter dengan konsep mvc dasar. Kemudian menggunakan juga framework css yaitu bootstrap sebagai penunjang UI dari website
+                E-commerce ini juga memiliki fitur checkout, cart, dan log pembelian pada tiap usernya. tak lupa juga
+                dengan authentication user seperti signup dan Account registration.
 
-            
-                Data di proses dengan mengalikan atau mencampurkan nilai dan sifat tiap individu sehingga mendapatkan individu baru pada generasi paling optimalnya. data kemudian dikelompokkan berdasarkan kemiripannya (Clustering) yang siap dianalisa.
-                Machine Learning ini menggunakan python sebagai bahasa pemrograman dasar dan juga beberapa library nya seperti numpy, danlainya.
+                Website SMIP Menggunakan framework php yaitu codeigneiter dengan konsep mvc dasar. Kemudian menggunakan
+                juga framework css yaitu bootstrap sebagai penunjang UI dari website
+
+
+                Data di proses dengan mengalikan atau mencampurkan nilai dan sifat tiap individu sehingga mendapatkan
+                individu baru pada generasi paling optimalnya. data kemudian dikelompokkan berdasarkan kemiripannya
+                (Clustering) yang siap dianalisa.
+                Machine Learning ini menggunakan python sebagai bahasa pemrograman dasar dan juga beberapa library nya
+                seperti numpy, danlainya.
             </p>
         </div>
     </div>
@@ -1021,6 +1193,65 @@
     </script>
 
     <script>
+
+        /* HAMBURGER & SIDEBAR */
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("navMenu");
+
+            if (!hamburger || !navMenu) return;
+
+            /* TOGGLE SIDEBAR */
+
+            hamburger.addEventListener("click", (e) => {
+
+                e.stopPropagation();
+
+                navMenu.classList.toggle("active");
+                hamburger.classList.toggle("active");
+
+            });
+
+            /* CLOSE WHEN CLICK OUTSIDE */
+
+            document.addEventListener("click", (event) => {
+
+                const isClickInsideMenu =
+                    navMenu.contains(event.target);
+
+                const isClickHamburger =
+                    hamburger.contains(event.target);
+
+                if (
+                    !isClickInsideMenu &&
+                    !isClickHamburger
+                ) {
+
+                    navMenu.classList.remove("active");
+                    hamburger.classList.remove("active");
+
+                }
+
+            });
+
+            /* CLOSE WHEN LINK CLICKED */
+
+            document
+                .querySelectorAll("#navMenu a")
+                .forEach(link => {
+
+                    link.addEventListener("click", () => {
+
+                        navMenu.classList.remove("active");
+                        hamburger.classList.remove("active");
+
+                    });
+
+                });
+
+        });
+
         /* reveal animation */
 
         const observer = new IntersectionObserver(
@@ -1052,6 +1283,14 @@
 
                 document.getElementById('certModal').style.display = 'flex';
             });
+        });
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+
+            setTimeout(() => {
+                loader.classList.add("hide");
+            }, 700);
         });
     </script>
 </body>
