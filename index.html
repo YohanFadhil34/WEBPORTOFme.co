@@ -504,9 +504,13 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-      /* MOBILE SIDEBAR — STABLE OFF-CANVAS */
+      /* MOBILE SIDEBAR — FIX OVERFRAME */
 
       @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
         .nav ul {
           position: fixed;
 
@@ -537,10 +541,12 @@
           transform: translateX(100%);
 
           transition: transform 0.35s ease;
+
+          will-change: transform;
         }
 
         .nav ul.active {
-          /* STATE: VISIBLE */
+          /* STATE: SHOW */
           transform: translateX(0);
         }
       }
