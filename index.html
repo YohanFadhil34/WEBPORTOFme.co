@@ -52,6 +52,7 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
+            overflow-x: hidden;
         }
 
         body {
@@ -408,7 +409,6 @@
                 min-width: 140px;
                 max-width: 140px;
             }
-
         }
 
         /* LOADER */
@@ -421,7 +421,9 @@
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            transition: opacity 0.6s ease, visibility 0.6s;
+            transition:
+                opacity 0.6s ease,
+                visibility 0.6s;
         }
 
         #loader.hide {
@@ -504,57 +506,56 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-      /* MOBILE SIDEBAR — FIX OVERFRAME */
+        /* MOBILE SIDEBAR — FIX OVERFRAME */
 
-      @media (max-width: 768px) {
-        .hamburger {
-          display: flex;
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav ul {
+                position: fixed;
+
+                top: 74px;
+                right: 0;
+
+                width: 280px;
+
+                height: calc(100dvh - 74px);
+
+                background: #020617;
+
+                flex-direction: column;
+
+                padding: 32px 24px;
+
+                gap: 22px;
+
+                border-left: 1px solid rgba(148, 163, 184, 0.15);
+
+                z-index: 1000;
+
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+
+                overflow-y: auto;
+
+                /* STATE: HIDDEN */
+                transform: translateX(100%);
+
+                transition: transform 0.35s ease;
+
+                will-change: transform;
+            }
+
+            .nav ul.active {
+                /* STATE: SHOW */
+                transform: translateX(0);
+            }
         }
-
-        .nav ul {
-          position: fixed;
-
-          top: 74px;
-          right: 0;
-
-          width: 280px;
-
-          height: calc(100dvh - 74px);
-
-          background: #020617;
-
-          flex-direction: column;
-
-          padding: 32px 24px;
-
-          gap: 22px;
-
-          border-left: 1px solid rgba(148, 163, 184, 0.15);
-
-          z-index: 1000;
-
-          box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
-
-          overflow-y: auto;
-
-          /* STATE: HIDDEN */
-          transform: translateX(100%);
-
-          transition: transform 0.35s ease;
-
-          will-change: transform;
-        }
-
-        .nav ul.active {
-          /* STATE: SHOW */
-          transform: translateX(0);
-        }
-      }
     </style>
 </head>
 
 <body>
-
     <!-- LOADING SCREEN -->
 
     <div id="loader">
@@ -775,9 +776,11 @@
 
                     <h4>E-commerece website</h4>
 
-                    <p>Php, MySQL, Reporting, Authentication System, Cart system. Website ini menggunakan php sebagai
-                        bahasa pemrograman dasar backend, framework bootstrap CSS sebagai penunjang UI, dan Javascript
-                        sebagai penunjang animasi dan lainnya</p>
+                    <p>
+                        Php, MySQL, Reporting, Authentication System, Cart system. Website ini menggunakan php
+                        sebagai bahasa pemrograman dasar backend, framework bootstrap CSS sebagai penunjang
+                        UI, dan Javascript sebagai penunjang animasi dan lainnya
+                    </p>
                 </div>
 
                 <div class="card project-card">
@@ -785,9 +788,11 @@
 
                     <h4>Management Information System</h4>
 
-                    <p>CRUD System, Role Management, Reporting Module. Website SMIP / Sistem Manajemen Informasi
-                        Perpusatakaan dimana mengatur peminjaman buku, pengembalian buku, pengajuan buku. Website SMIP
-                        juga dilengkapi fitur authencation user, sistem denda apabila telat dan Crud terkait data buku.
+                    <p>
+                        CRUD System, Role Management, Reporting Module. Website SMIP / Sistem Manajemen
+                        Informasi Perpusatakaan dimana mengatur peminjaman buku, pengembalian buku, pengajuan
+                        buku. Website SMIP juga dilengkapi fitur authencation user, sistem denda apabila telat
+                        dan Crud terkait data buku.
                     </p>
                 </div>
 
@@ -796,10 +801,12 @@
 
                     <h4>Machine Learning</h4>
 
-                    <p>Clustering data using Machine Learning System. Machine learning ini bertujuan untuk mengetahui
-                        sebaran penyakit Tuberculosis(TBC) pada suatu kabupaten atau kota. Machine learning ini
-                        berkonsep clustering method dimana algorithma yang digunakan adalah algoritma evolusi genetika
-                        (Genetic Evolution).</p>
+                    <p>
+                        Clustering data using Machine Learning System. Machine learning ini bertujuan untuk
+                        mengetahui sebaran penyakit Tuberculosis(TBC) pada suatu kabupaten atau kota. Machine
+                        learning ini berkonsep clustering method dimana algorithma yang digunakan adalah
+                        algoritma evolusi genetika (Genetic Evolution).
+                    </p>
                 </div>
             </div>
         </div>
@@ -1009,8 +1016,7 @@
             <div style="margin-bottom: 10px">
                 Sitemap:
                 <a href="#about">About</a> | <a href="#skills">Skills</a> |
-                <a href="#projects">Projects</a> |
-                <a href="#contact">Contact</a> |
+                <a href="#projects">Projects</a> | <a href="#contact">Contact</a> |
                 <a href="gallery.html">Gallery</a>
             </div>
 
@@ -1087,16 +1093,12 @@
 
         // Dark Light Mode Toggle
 
-        const toggle = document.getElementById("themeToggle");
+        const toggle = document.getElementById('themeToggle');
 
         if (toggle) {
-
-            toggle.addEventListener("click", () => {
-
-                document.body.classList.toggle("light-mode");
-
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
             });
-
         }
     </script>
 
@@ -1135,19 +1137,15 @@
             <h3>Project Detail</h3>
 
             <p style="margin-top: 14px; color: #94a3b8">
-
-                E-commerce ini juga memiliki fitur checkout, cart, dan log pembelian pada tiap usernya. tak lupa juga
-                dengan authentication user seperti signup dan Account registration.
-
-                Website SMIP Menggunakan framework php yaitu codeigneiter dengan konsep mvc dasar. Kemudian menggunakan
-                juga framework css yaitu bootstrap sebagai penunjang UI dari website
-
-
-                Data di proses dengan mengalikan atau mencampurkan nilai dan sifat tiap individu sehingga mendapatkan
-                individu baru pada generasi paling optimalnya. data kemudian dikelompokkan berdasarkan kemiripannya
-                (Clustering) yang siap dianalisa.
-                Machine Learning ini menggunakan python sebagai bahasa pemrograman dasar dan juga beberapa library nya
-                seperti numpy, danlainya.
+                E-commerce ini juga memiliki fitur checkout, cart, dan log pembelian pada tiap usernya.
+                tak lupa juga dengan authentication user seperti signup dan Account registration. Website
+                SMIP Menggunakan framework php yaitu codeigneiter dengan konsep mvc dasar. Kemudian
+                menggunakan juga framework css yaitu bootstrap sebagai penunjang UI dari website Data di
+                proses dengan mengalikan atau mencampurkan nilai dan sifat tiap individu sehingga
+                mendapatkan individu baru pada generasi paling optimalnya. data kemudian dikelompokkan
+                berdasarkan kemiripannya (Clustering) yang siap dianalisa. Machine Learning ini
+                menggunakan python sebagai bahasa pemrograman dasar dan juga beberapa library nya seperti
+                numpy, danlainya.
             </p>
         </div>
     </div>
@@ -1194,63 +1192,43 @@
     </script>
 
     <script>
-
         /* HAMBURGER & SIDEBAR */
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const hamburger = document.getElementById("hamburger");
-            const navMenu = document.getElementById("navMenu");
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
 
             if (!hamburger || !navMenu) return;
 
             /* TOGGLE SIDEBAR */
 
-            hamburger.addEventListener("click", (e) => {
-
+            hamburger.addEventListener('click', (e) => {
                 e.stopPropagation();
 
-                navMenu.classList.toggle("active");
-                hamburger.classList.toggle("active");
-
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
             });
 
             /* CLOSE WHEN CLICK OUTSIDE */
 
-            document.addEventListener("click", (event) => {
+            document.addEventListener('click', (event) => {
+                const isClickInsideMenu = navMenu.contains(event.target);
 
-                const isClickInsideMenu =
-                    navMenu.contains(event.target);
+                const isClickHamburger = hamburger.contains(event.target);
 
-                const isClickHamburger =
-                    hamburger.contains(event.target);
-
-                if (
-                    !isClickInsideMenu &&
-                    !isClickHamburger
-                ) {
-
-                    navMenu.classList.remove("active");
-                    hamburger.classList.remove("active");
-
+                if (!isClickInsideMenu && !isClickHamburger) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
                 }
-
             });
 
             /* CLOSE WHEN LINK CLICKED */
 
-            document
-                .querySelectorAll("#navMenu a")
-                .forEach(link => {
-
-                    link.addEventListener("click", () => {
-
-                        navMenu.classList.remove("active");
-                        hamburger.classList.remove("active");
-
-                    });
-
+            document.querySelectorAll('#navMenu a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
                 });
-
+            });
         });
 
         /* reveal animation */
@@ -1286,11 +1264,11 @@
             });
         });
 
-        window.addEventListener("load", () => {
-            const loader = document.getElementById("loader");
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
 
             setTimeout(() => {
-                loader.classList.add("hide");
+                loader.classList.add('hide');
             }, 700);
         });
     </script>
